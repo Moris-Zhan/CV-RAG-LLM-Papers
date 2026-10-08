@@ -1,7 +1,11 @@
-// 2026 AI 黑客松競賽情報簡報：ASUS UGen AI League × 2026 和泰 AI 黑客松
+// 競賽情報簡報產生器：node build_deck.js <out.pptx> <asus|hotai>
+// 兩項賽事各自輸出一份獨立簡報
 const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.SKILL + "/scripts/apply_theme.js");
 const OUT = process.argv[2] || "deck.pptx";
+const MODE = process.argv[3] || "asus";
+if (!["asus", "hotai"].includes(MODE)) throw new Error("MODE must be asus or hotai");
+const DECK = MODE === "asus" ? "ASUS UGen AI League 創新黑客松" : "2026 和泰 AI 黑客松";
 
 const F = "Microsoft JhengHei";
 const THEME = {
@@ -22,7 +26,7 @@ const NAVY = H.dk2, INK = H.dk1, ORANGE = H.accent1, TEAL = H.accent2, RED = H.a
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE"; // 13.333 x 7.5
-pres.title = "2026 AI 黑客松競賽情報";
+pres.title = DECK + "｜競賽情報";
 pres.author = "CV-RAG-LLM-Papers";
 pres.theme = { headFontFace: F, bodyFontFace: F };
 
@@ -32,7 +36,7 @@ pres.defineSlideMaster({
   objects: [
     { placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.35, w: 10.6, h: 0.85, fontFace: F, fontSize: 30, bold: true, color: NAVY, valign: "middle", align: "left", margin: 0 }, text: "" } },
     { placeholder: { options: { name: "tag", type: "body", x: 11.0, y: 0.5, w: 1.75, h: 0.45, fontFace: F, fontSize: 11, bold: true, color: WHITE, align: "center", valign: "middle", margin: 0 }, text: "" } },
-    { text: { text: "2026 AI 黑客松競賽情報｜資料來源：競賽官方網站（擷取於 2026/10/08）", options: { x: 0.6, y: 7.02, w: 9, h: 0.3, fontFace: F, fontSize: 9, color: MUTED, margin: 0 } } },
+    { text: { text: DECK + "｜競賽情報｜資料來源：競賽官方網站（擷取於 2026/10/08）", options: { x: 0.6, y: 7.02, w: 9, h: 0.3, fontFace: F, fontSize: 9, color: MUTED, margin: 0 } } },
   ],
   slideNumber: { x: 12.2, y: 7.0, w: 0.55, h: 0.3, fontFace: F, fontSize: 9, color: MUTED, align: "right" },
 });
@@ -80,61 +84,49 @@ function table(s, rows, x, y, w, colW, o = {}) {
   s.addTable(data, { x, y, w, colW, border: { type: "solid", pt: 0.5, color: "D5DBE3" }, rowH: o.rowH, autoPage: false });
 }
 
-/* ====================== 封面 ====================== */
-pres.addSection({ title: "封面與總覽" });
-let s = pres.addSlide({ masterName: "DARK", sectionTitle: "封面與總覽" });
+
+/* ====================== ASUS 簡報 ====================== */
+function buildAsus() {
+const SA = "賽事內容";
+const S0 = "封面與總覽";
+pres.addSection({ title: S0 });
+let s = pres.addSlide({ masterName: "DARK", sectionTitle: S0 });
 T(s, "COMPETITION BRIEF · 2026", 0.8, 0.9, 8, 0.4, { fontSize: 14, bold: true, color: GOLD, charSpacing: 4 });
-T(s, "2026 AI 黑客松競賽情報", 0.8, 1.45, 11.5, 1.1, { fontSize: 46, bold: true, color: WHITE });
-T(s, "ASUS UGen AI League 創新黑客松  ×  2026 和泰 AI 黑客松", 0.8, 2.6, 11.5, 0.6, { fontSize: 22, color: "CADCFC" });
-card(s, 0.8, 3.75, 5.6, 2.55, "1F3157", { shadow: false });
-card(s, 6.9, 3.75, 5.6, 2.55, "1F3157", { shadow: false });
-dot(s, 1.1, 4.05, 0.7, TEAL, "A", 22);
-dot(s, 7.2, 4.05, 0.7, RED, "B", 22);
-T(s, "ASUS UGen AI League", 2.0, 4.05, 4.2, 0.4, { fontSize: 18, bold: true, color: WHITE });
-T(s, "主辦 ASUS｜協辦 Intel、Hailo\nEdge AI／Agentic AI 軟硬整合\n總獎金池逾 USD 20,000", 2.0, 4.5, 4.3, 1.6, { fontSize: 14, color: "D9E2F2", paraSpaceAfter: 4 });
-T(s, "2026 和泰 AI 黑客松", 8.1, 4.05, 4.2, 0.4, { fontSize: 18, bold: true, color: WHITE });
-T(s, "主辦 和泰汽車｜7 道集團企業命題\nGenAI × 大數據 × 移動服務\n總獎金逾新台幣 100 萬元", 8.1, 4.5, 4.3, 1.6, { fontSize: 14, color: "D9E2F2", paraSpaceAfter: 4 });
-T(s, "資料擷取日 2026/10/08｜兩項賽事 Stage I／初賽皆於 2026/10/14 截止", 0.8, 6.65, 11.5, 0.4, { fontSize: 12, color: GOLD });
+T(s, "ASUS UGen AI League\n創新黑客松", 0.8, 1.45, 11.5, 1.9, { fontSize: 44, bold: true, color: WHITE });
+T(s, "從具體痛點出發，打造可運行、可驗證的 AI 應用原型", 0.8, 3.45, 11.5, 0.6, { fontSize: 20, color: "CADCFC" });
+[["主辦", "ASUS"], ["協辦", "Intel・Hailo"], ["獎金池", "USD 20,000+"], ["Stage I 截止", "10/14 17:00"]].forEach(([k, v], i) => {
+  const x = 0.8 + i * 3.0;
+  card(s, x, 4.5, 2.75, 1.5, "1F3157", { shadow: false });
+  T(s, k, x + 0.25, 4.65, 2.3, 0.4, { fontSize: 13, color: "CADCFC" });
+  T(s, v, x + 0.25, 5.05, 2.4, 0.7, { fontSize: 22, bold: true, color: i === 3 ? GOLD : WHITE });
+});
+T(s, "contest.bhuntr.com/tw/39jg9vimiynrhlksze/home/｜資料擷取日 2026/10/08", 0.8, 6.65, 11.5, 0.4, { fontSize: 12, color: GOLD });
 
-/* 總覽比較 */
-s = content("封面與總覽", "兩項賽事一頁比較");
+s = content(S0, "賽事一覽", "ASUS", TEAL);
 table(s, [
-  ["項目", "ASUS UGen AI League 創新黑客松", "2026 和泰 AI 黑客松"],
-  ["主辦／協辦", "華碩電腦；協辦 Intel、Hailo", "和泰汽車；合作夥伴 Google Cloud；承辦 獎金獵人"],
-  ["核心命題", "Creator／Workplace／Everyday AI，搭配兩種運算平台", "7 道集團品牌真實命題（TOYOTA、LEXUS、HINO、iRent、yoxi、去趣）"],
-  ["資格", "全球年滿 18 歲大專生、研究生、開發者與專業人士", "高中職、大專生及社會人士；隊長須具中華民國國籍"],
-  ["隊伍人數", "1–5 人（可個人）", "2–5 人（不可個人）＋最多 2 位指導老師"],
-  ["初賽截止", { text: "2026/10/14（三）17:00", bold: true }, { text: "2026/10/14（三）13:00", bold: true }],
-  ["初賽繳件", "英文提案簡報 ≤ 20 頁＋英文影片 ≤ 3 分鐘", "PDF 簡報 ≤ 15 頁＋說明影片 ≤ 3 分鐘"],
-  ["決賽", "2026/12/19 ASUS 總部（線上組遠端評選）", "2026/11/21 現場簡報＋ Prototype Demo"],
-  ["獎金", "總獎金池 > USD 20,000（冠軍最高 USD 5,000＋加碼）", "總獎金 > NT$1,000,000（冠軍 NT$300,000）"],
-], 0.6, 1.4, 12.1, [2.1, 5.0, 5.0], { fontSize: 12, rowH: 0.56 });
+  ["項目", "內容"],
+  ["主辦／協辦", "華碩電腦股份有限公司；協辦 Intel Corporation、Hailo Technologies Ltd."],
+  ["主題方向", "Creator AI（創作體驗）、Workplace AI（工作場域）、Everyday AI（日常生活）"],
+  ["競賽賽道", "Battlefield Lightning（UGen300，Edge AI）／Battlefield Thunderstorm（Intel Arc Pro B70，Agentic AI）"],
+  ["參賽資格", "全球年滿 18 歲之大專院校學生、研究生、開發者及專業人士；國籍不限"],
+  ["隊伍人數", "1–5 人（可個人報名）；每人限一件作品"],
+  ["參賽形式", "國際線上組（遠端評選）／實體競賽組（12/19 ASUS 總部現場）"],
+  ["Stage I 截止", { text: "2026/10/14（三）17:00（Asia/Taipei）", bold: true }],
+  ["初賽繳件", "英文提案簡報（正文 ≤ 20 頁）＋英文實機展演影片（≤ 3 分鐘）＋GitHub 連結"],
+  ["獎金", "總獎金池逾 USD 20,000；冠軍最高 USD 5,000，實體組冠軍另加碼 USD 1,000"],
+], 0.6, 1.4, 12.1, [2.3, 9.8], { fontSize: 13, rowH: 0.52, headFill: TEAL });
 
-/* 倒數 */
-s = content("封面與總覽", "時間只剩 6 天：兩項初賽同日截止");
-card(s, 0.6, 1.5, 3.9, 4.9, NAVY);
-T(s, "6", 0.6, 1.8, 3.9, 2.2, { fontSize: 140, bold: true, color: GOLD, align: "center", valign: "middle" });
-T(s, "天（自 10/08 起算）", 0.6, 4.1, 3.9, 0.5, { fontSize: 18, color: WHITE, align: "center" });
-T(s, "兩項賽事初賽都在\n2026/10/14（三）", 0.6, 4.75, 3.9, 1.2, { fontSize: 16, color: "CADCFC", align: "center" });
-card(s, 4.9, 1.5, 3.75, 4.9, RED_T);
-dot(s, 5.2, 1.8, 0.65, RED, "和");
-T(s, "和泰 AI 黑客松", 6.0, 1.85, 2.5, 0.55, { fontSize: 17, bold: true, color: RED, valign: "middle" });
-T(s, "13:00", 5.2, 2.65, 3.2, 0.9, { fontSize: 44, bold: true, color: INK });
-T(s, bullets(["隊長登入「投稿紀錄」上傳 PDF 簡報", "附 3 分鐘 YouTube（不公開）影片連結", "步驟一＋步驟二須皆於截止前完成", "截止後才統一審核資格"]), 5.2, 3.6, 3.3, 2.6, { fontSize: 13 });
-card(s, 8.95, 1.5, 3.75, 4.9, TEAL_T);
-dot(s, 9.25, 1.8, 0.65, TEAL, "A");
-T(s, "ASUS UGen AI League", 10.05, 1.85, 2.6, 0.55, { fontSize: 15, bold: true, color: TEAL, valign: "middle" });
-T(s, "17:00", 9.25, 2.65, 3.2, 0.9, { fontSize: 44, bold: true, color: INK });
-T(s, bullets(["英文提案簡報（正文 ≤ 20 頁）", "英文展演影片 ≤ 3 分鐘，YouTube 知道連結者可看", "附 GitHub 原始碼專案連結", "比賽時區 Asia/Taipei"]), 9.25, 3.6, 3.3, 2.6, { fontSize: 13 });
+s = content(S0, "距離 Stage I 截止只剩 6 天", "ASUS", TEAL);
+card(s, 0.6, 1.5, 4.2, 4.9, NAVY);
+T(s, "6", 0.6, 1.8, 4.2, 2.2, { fontSize: 140, bold: true, color: GOLD, align: "center", valign: "middle" });
+T(s, "天（自 10/08 起算）", 0.6, 4.1, 4.2, 0.5, { fontSize: 18, color: WHITE, align: "center" });
+T(s, "2026/10/14（三）17:00\nAsia/Taipei", 0.6, 4.75, 4.2, 1.2, { fontSize: 16, color: "CADCFC", align: "center" });
+card(s, 5.2, 1.5, 7.5, 4.9, TEAL_T);
+T(s, "截止前必須完成", 5.5, 1.75, 6.9, 0.5, { fontSize: 20, bold: true, color: TEAL });
+T(s, bullets(["選定一個主題方向＋一個競賽賽道（Lightning 或 Thunderstorm），並擇一參賽形式", "英文提案簡報：正文 ≤ 20 頁，涵蓋問題定義、解決方案、軟硬體架構、預期效益、參考文獻與 GitHub", "英文實機展演影片：建議 ≤ 3 分鐘，上傳 YouTube 並設為「知道連結者可觀看」", "GitHub 原始碼專案連結", "預留上傳與檢查時間：以系統後台收件紀錄為準"]), 5.5, 2.35, 6.9, 3.9, { fontSize: 15, paraSpaceAfter: 8 });
 
-/* ====================== A. ASUS ====================== */
-const SA = "A｜ASUS UGen AI League";
 pres.addSection({ title: SA });
-s = pres.addSlide({ masterName: "DARK", sectionTitle: SA });
-dot(s, 0.8, 2.3, 1.1, TEAL, "A", 36);
-T(s, "ASUS UGen AI League 創新黑客松", 2.2, 2.25, 10, 0.8, { fontSize: 36, bold: true, color: WHITE });
-T(s, "從具體痛點出發，打造可運行、可驗證的 AI 應用原型", 2.2, 3.1, 10, 0.5, { fontSize: 18, color: "CADCFC" });
-T(s, "contest.bhuntr.com/tw/39jg9vimiynrhlksze/home/", 2.2, 3.8, 10, 0.4, { fontSize: 13, color: GOLD });
+/* ====================== A. ASUS ====================== */
 
 s = content(SA, "競賽緣起：從 AI 能跑，到 AI 落地", "ASUS", TEAL);
 T(s, bullets([
@@ -280,14 +272,65 @@ T(s, "02-7730-7613", 8.5, 2.75, 4, 0.5, { fontSize: 20, bold: true, color: WHITE
 T(s, "獎金獵人客服：contest@bhuntr.com\nLINE@ @bhuntr", 8.5, 3.45, 4, 0.9, { fontSize: 13, color: "CADCFC" });
 T(s, "報名：競賽頁「馬上報名」\n說明／公告／Q&A 三個分頁", 8.5, 4.6, 4, 1.0, { fontSize: 13, color: "CADCFC" });
 
-/* ====================== B. 和泰 ====================== */
-const SB = "B｜2026 和泰 AI 黑客松";
+pres.addSection({ title: "結語" });
+s = pres.addSlide({ masterName: "DARK", sectionTitle: "結語" });
+T(s, "參賽行動清單", 0.8, 0.7, 11, 0.8, { fontSize: 34, bold: true, color: WHITE });
+[["10/08–10/09", "決定主題、賽道（Lightning／Thunderstorm）與參賽形式（線上／實體）；完成報名", RED],
+ ["10/10–10/11", "定義痛點與解法；以筆電、SBC 或虛擬主機先做初期模擬，建立 GitHub 專案", ORANGE],
+ ["10/12–10/13", "撰寫英文提案簡報（≤ 20 頁）並錄製英文展演影片（≤ 3 分鐘）", GOLD],
+ ["10/14 17:00 前", "上傳簡報、YouTube 連結與 GitHub 連結，確認收到系統通知信並保存 SID", TEAL],
+ ["10/26 之後", "若入圍：Lightning 等待 UGen300 寄送；Thunderstorm 申請 SDV 虛擬主機；Stage II 開發至 12/4", GREEN]]
+  .forEach(([d, t, c], i) => {
+    const y = 1.75 + i * 1.0;
+    dot(s, 0.8, y, 0.6, c, String(i + 1), 16);
+    T(s, d, 1.6, y, 2.4, 0.6, { fontSize: 16, bold: true, color: c, valign: "middle" });
+    T(s, t, 4.0, y, 8.6, 0.6, { fontSize: 15, color: WHITE, valign: "middle" });
+  });
+T(s, "賽務聯絡：asus_aihackathon@bhuntr.com｜02-7730-7613", 0.8, 6.85, 11.8, 0.4, { fontSize: 12, color: GOLD });
+}
+
+/* ====================== 和泰簡報 ====================== */
+function buildHotai() {
+const SB = "賽事內容";
+const S0 = "封面與總覽";
+pres.addSection({ title: S0 });
+let s = pres.addSlide({ masterName: "DARK", sectionTitle: S0 });
+T(s, "COMPETITION BRIEF · 2026", 0.8, 0.9, 8, 0.4, { fontSize: 14, bold: true, color: GOLD, charSpacing: 4 });
+T(s, "2026 和泰 AI 黑客松", 0.8, 1.45, 11.5, 1.1, { fontSize: 46, bold: true, color: WHITE });
+T(s, "以 AI 為核心動力，讓創意成為可落地的解決方案", 0.8, 2.65, 11.5, 0.6, { fontSize: 20, color: "CADCFC" });
+[["主辦", "和泰汽車"], ["企業命題", "7 道"], ["總獎金", "NT$100 萬+"], ["初賽截止", "10/14 13:00"]].forEach(([k, v], i) => {
+  const x = 0.8 + i * 3.0;
+  card(s, x, 4.5, 2.75, 1.5, "1F3157", { shadow: false });
+  T(s, k, x + 0.25, 4.65, 2.3, 0.4, { fontSize: 13, color: "CADCFC" });
+  T(s, v, x + 0.25, 5.05, 2.4, 0.7, { fontSize: 22, bold: true, color: i === 3 ? GOLD : WHITE });
+});
+T(s, "ht-hackathon.tw/tw/home/｜資料擷取日 2026/10/08", 0.8, 6.65, 11.5, 0.4, { fontSize: 12, color: GOLD });
+
+s = content(S0, "賽事一覽", "和泰", RED);
+table(s, [
+  ["項目", "內容"],
+  ["主辦／夥伴", "和泰汽車股份有限公司；合作夥伴 Google Cloud；承辦 獎金獵人"],
+  ["企業命題", "TOYOTA ×2、LEXUS、HINO、iRent、yoxi、去趣 eSIM，共 7 道真實命題"],
+  ["參賽資格", "高中職、大專院校學生及社會人士；隊長須具中華民國國籍；未滿 18 歲附法定代理人同意書"],
+  ["隊伍人數", "2–5 人（不可個人、不可跨隊）＋最多 2 位指導老師"],
+  ["提案上限", "每隊最多 7 件，每題限 1 件；一案一報名"],
+  ["初賽截止", { text: "2026/10/14（三）13:00", bold: true }],
+  ["初賽繳件", "PDF 解決方案簡報（≤ 15 頁，七大架構）＋3 分鐘說明影片（YouTube 不公開）"],
+  ["決賽", "10/28 公布 15 隊 → 11/07 工作坊 → 11/18 最終提案 ≤ 30 頁 → 11/21 現場 Demo 與頒獎"],
+  ["獎金", "冠軍 30 萬、亞軍 25 萬、季軍 20 萬、潛力新星 5 萬 ×4、佳作 1 萬 ×8"],
+], 0.6, 1.4, 12.1, [2.3, 9.8], { fontSize: 13, rowH: 0.52, headFill: RED });
+
+s = content(S0, "距離初賽截止只剩 6 天", "和泰", RED);
+card(s, 0.6, 1.5, 4.2, 4.9, NAVY);
+T(s, "6", 0.6, 1.8, 4.2, 2.2, { fontSize: 140, bold: true, color: GOLD, align: "center", valign: "middle" });
+T(s, "天（自 10/08 起算）", 0.6, 4.1, 4.2, 0.5, { fontSize: 18, color: WHITE, align: "center" });
+T(s, "2026/10/14（三）13:00\n以主辦收件時間為準", 0.6, 4.75, 4.2, 1.2, { fontSize: 16, color: "CADCFC", align: "center" });
+card(s, 5.2, 1.5, 7.5, 4.9, RED_T);
+T(s, "截止前必須完成", 5.5, 1.75, 6.9, 0.5, { fontSize: 20, bold: true, color: RED });
+T(s, bullets(["步驟一：官網「我要報名」填寫團隊資料，取得 SID，並收取解題資源信件", "步驟二：隊長登入「投稿紀錄」上傳 PDF 簡報（≤ 15 頁）＋3 分鐘影片連結，送出「請求更新」", "影片標題：出題企業_作品名稱_2026 和泰 AI 黑客松", "全員完成獎金獵人帳號驗證，否則收不到通知", "系統問題須於截止前連同截圖寄 ht-hackathon@bhuntr.com"]), 5.5, 2.35, 6.9, 3.9, { fontSize: 15, paraSpaceAfter: 8 });
+
 pres.addSection({ title: SB });
-s = pres.addSlide({ masterName: "DARK", sectionTitle: SB });
-dot(s, 0.8, 2.3, 1.1, RED, "B", 36);
-T(s, "2026 和泰 AI 黑客松", 2.2, 2.25, 10, 0.8, { fontSize: 36, bold: true, color: WHITE });
-T(s, "以 AI 為核心動力，讓創意成為可落地的解決方案", 2.2, 3.1, 10, 0.5, { fontSize: 18, color: "CADCFC" });
-T(s, "ht-hackathon.tw/tw/home/", 2.2, 3.8, 10, 0.4, { fontSize: 13, color: GOLD });
+/* ====================== B. 和泰 ====================== */
 
 s = content(SB, "AI First：以集團真實營運場景為舞台", "和泰", RED);
 const evo = [["2022", "MaaS 數據黑客松", "數據探索啟動創新"], ["2024", "MaaS 黑客松", "深入 MaaS 生態圈實踐"], ["2026", "AI 黑客松", "AI First，GenAI＋大數據"]];
@@ -458,12 +501,11 @@ T(s, "02-6604-3004 #57", 8.5, 2.8, 4, 0.5, { fontSize: 20, bold: true, color: WH
 T(s, "諮詢時間 週一至週五 10:00–19:00", 8.5, 3.45, 4, 0.5, { fontSize: 13, color: "CADCFC" });
 T(s, "爭議適用中華民國法律，臺灣臺北地方法院為第一審管轄法院", 8.5, 4.3, 3.9, 1.2, { fontSize: 12, color: "CADCFC" });
 
-/* ====================== 結語 ====================== */
 pres.addSection({ title: "結語" });
 s = pres.addSlide({ masterName: "DARK", sectionTitle: "結語" });
 T(s, "接下來 6 天的行動清單", 0.8, 0.7, 11, 0.8, { fontSize: 34, bold: true, color: WHITE });
-[["今天", "完成和泰步驟一報名（取得 SID 與 iRent 解題資源），全員完成獎金獵人帳號驗證", RED],
- ["10/09–10/10", "研讀 iRent 照片清單、索賠案例與拍照流程圖；確立痛點、Persona 與三環節方案架構", ORANGE],
+[["今天", "完成步驟一報名（取得 SID 與解題資源），全員完成獎金獵人帳號驗證", RED],
+ ["10/09–10/10", "研讀解題資源；確立痛點、Persona 與方案架構", ORANGE],
  ["10/11–10/12", "依官方模板撰寫 15 頁簡報（七大架構）；準備 AI 模型選型、資料流程與 KPI", GOLD],
  ["10/13", "錄製 3 分鐘影片並依命名規範上傳 YouTube（不公開）；全員交叉審稿", TEAL],
  ["10/14 13:00 前", "隊長上傳 PDF＋影片連結並送出「請求更新」，截圖存證", GREEN]]
@@ -473,7 +515,10 @@ T(s, "接下來 6 天的行動清單", 0.8, 0.7, 11, 0.8, { fontSize: 34, bold: 
     T(s, d, 1.6, y, 2.4, 0.6, { fontSize: 16, bold: true, color: c, valign: "middle" });
     T(s, t, 4.0, y, 8.6, 0.6, { fontSize: 15, color: WHITE, valign: "middle" });
   });
-T(s, "若另投 ASUS：英文提案＋影片＋GitHub 須於 10/14 17:00 前完成，與和泰同日截止，需評估人力", 0.8, 6.85, 11.8, 0.4, { fontSize: 12, color: GOLD });
+T(s, "賽務聯絡：ht-hackathon@bhuntr.com｜02-6604-3004 #57（週一至週五 10:00–19:00）", 0.8, 6.85, 11.8, 0.4, { fontSize: 12, color: GOLD });
+}
+
+if (MODE === "asus") buildAsus(); else buildHotai();
 
 (async () => {
   await pres.writeFile({ fileName: OUT });
