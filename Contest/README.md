@@ -2,10 +2,16 @@
 
 資料擷取日：2026/10/08。內容來自兩個賽事的官方網站、活動 Q&A 與官方附件 PDF。
 
-| 檔案 | 說明 |
-|---|---|
-| `2026_AI_Hackathon_Brief.pptx` | 29 頁詳細簡報（可編輯） |
-| `2026_AI_Hackathon_Brief.pdf` | 同內容 PDF 版 |
+兩項賽事各自整理成獨立簡報：
+
+| 賽事 | 簡報 | 頁數 |
+|---|---|---|
+| ASUS UGen AI League 創新黑客松 | `ASUS_UGen_AI_League/ASUS_UGen_AI_League_Brief.pptx`（＋ `.pdf`） | 15 |
+| 2026 和泰 AI 黑客松 | `Hotai_AI_Hackathon_2026/Hotai_AI_Hackathon_2026_Brief.pptx`（＋ `.pdf`） | 16 |
+
+重新產生：`node build_deck.js <out.pptx> asus` 或 `node build_deck.js <out.pptx> hotai`（需 pptxgenjs）。
+
+iRent 提案規劃（和泰題目 05）：`iRent/`｜文獻調查計畫：`Paper/Plan.md`｜會議議程：`Discuss/`
 
 ## A. ASUS UGen AI League 創新黑客松
 - 官網：https://contest.bhuntr.com/tw/39jg9vimiynrhlksze/home/
