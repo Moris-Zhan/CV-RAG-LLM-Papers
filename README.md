@@ -2,7 +2,7 @@
 
 Organize with Paper Survey —— 已讀論文的整理庫。每篇論文保存原文 PDF 與報告用的繁體中文簡報，依**領域**放置、以**標籤**標註跨領域主題。
 
-用語定義見 [GLOSSARY.md](GLOSSARY.md)；分類方式的決策記錄見 [docs/adr/0001](docs/adr/0001-domain-first-single-home-with-tags.md)。
+用語定義見 [GLOSSARY.md](GLOSSARY.md)（各用語脈絡見 [GLOSSARY-MAP.md](GLOSSARY-MAP.md)）；分類方式的決策記錄見 [docs/adr/0001](docs/adr/0001-domain-first-single-home-with-tags.md)。
 
 ## 目錄結構
 
@@ -20,12 +20,12 @@ CV-RAG-LLM-Papers/
 │       ├── pptx_audit_<語言>.md       # 簡報程式化檢查結果
 │       ├── asset_manifest.md          # 簡報圖片出處
 │       └── assets/figures/            # 從原文擷取的圖
-├── Contest/                 # 非論文資料：2026 AI 黑客松競賽情報
+├── Contest/                 # 非論文資料：2026 AI 黑客松競賽情報與 iRent 提案
 ├── docs/adr/                # 架構決策記錄
 ├── tools/my-slide/          # open-slide 簡報工作區
 ├── openspec/                # OpenSpec 設定（工具需放在根目錄）
 ├── .claude/ · .agents/      # Claude Code 的 skills、plugins 與指令
-├── GLOSSARY.md
+├── GLOSSARY.md · GLOSSARY-MAP.md
 └── skills-lock.json         # 已安裝 skill 的來源紀錄
 ```
 
@@ -78,6 +78,6 @@ CV-RAG-LLM-Papers/
 
 ## 非論文資料與工具
 
-- `Contest/`：2026 AI 黑客松競賽情報與簡報，說明見 [Contest/README.md](Contest/README.md)。
+- `Contest/`：2026 AI 黑客松（ASUS、和泰）競賽情報與簡報、iRent 提案規劃與文獻調查、會議議程，說明見 [Contest/README.md](Contest/README.md)。這裡的文獻調查為提案服務，不列入上方論文索引。
 - `tools/my-slide/`：open-slide 簡報工作區（`npm install` 後以 `npm run dev` 啟動；`node_modules` 不進版控）。
 - `openspec/`、`.claude/`、`.agents/`、`skills-lock.json`：Claude Code 的 OpenSpec、skills 與 plugins 設定，須留在根目錄。
