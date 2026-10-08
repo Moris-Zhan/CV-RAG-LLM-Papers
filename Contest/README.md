@@ -11,7 +11,7 @@
 
 重新產生：`node build_deck.js <out.pptx> asus` 或 `node build_deck.js <out.pptx> hotai`（需 pptxgenjs）。
 
-iRent 提案規劃（和泰題目 05）：`iRent/`
+iRent 提案規劃（和泰題目 05）：`iRent/`｜文獻調查計畫：`Paper/Plan.md`｜會議議程：`Discuss/`
 
 ## A. ASUS UGen AI League 創新黑客松
 - 官網：https://contest.bhuntr.com/tw/39jg9vimiynrhlksze/home/

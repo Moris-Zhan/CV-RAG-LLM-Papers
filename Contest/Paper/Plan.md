@@ -106,6 +106,8 @@ Contest/Paper/
 
 ## 5. 分工（依 Q2 角色）
 
+> ⏳ 未定案：分工與時程待下次會議決定（[`../Discuss/Next_Meeting_Agenda.md`](../Discuss/Next_Meeting_Agenda.md) 議題 2、3）。下表為原始建議。
+
 | 角色 | 負責方向 | Phase 1 筆記（篇號） |
 |---|---|---|
 | A｜AI／模型 | B、C | #1 CarDD、#2 CYWS、#3 AnomalyGPT、#8 Small Dents |
@@ -142,4 +144,4 @@ Contest/Paper/
 | 補強搜尋 | A、D 兩方向已補搜（新增 #5、#6、#7、#10、#11） |
 | 分級 | Tier 1 五篇完整精讀、Tier 2 單頁筆記、Tier 3 僅引用 |
 | 目錄 | 沿用 repo 慣例 `papers/` + `notes/{paper}/` |
-| 分工與時程 | 依角色暫定（§5、§6），待團隊確認 |
+| 分工與時程 | ⏳ 待下次會議決定（Discuss 議題 2、3） |

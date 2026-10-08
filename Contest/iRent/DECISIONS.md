@@ -7,8 +7,14 @@
 | Q1 | 全力聚焦 10/14 13:00 前完成初賽提案繳交 | ✅ 定案 |
 | Q2 | 四人分工：A AI／模型、B 系統架構與原型、C 服務設計與 UX、D 商業效益／KPI／簡報與影片 | ✅ 定案 |
 | Q3 | 三環節全覆蓋；主軸「從上傳那一刻起的端到端車況歸責」，核心技術為取車照 vs 還車照比對（見 ADR 0001） | ✅ 定案 |
-| Q4 | 主要使用者定位：Survey 後提出建議（見 paper_survey.md §3） | ⏳ 待確認 |
-| Q5 | AI 系統架構：Survey 後提出建議（見 paper_survey.md §3） | ⏳ 待確認 |
+| Q4 | 主要使用者定位：Survey 後提出建議（見 paper_survey.md §3） | ⏳ 待會議（Discuss 議題 4） |
+| Q5 | AI 系統架構：Survey 後提出建議（見 paper_survey.md §3） | ⏳ 待會議（Discuss 議題 5） |
 | Q6 | 創新服務：「車況接力」誠實回報換和泰 Points、車況影響整備與派車、下一位用戶取車前預警 | ✅ 定案 |
 | Q7 | 影片：輕量可運作 demo（上傳照片→品質檢查＋整潔判讀）＋完整流程畫面 mockup | ✅ 定案 |
 | S1–S4 | Paper survey：兩階段（10/11 前服務初賽）、補搜 A／D 方向、Tier 1–3 分級、`Contest/Paper/` 目錄（見 ../Paper/Plan.md） | ✅ 定案 |
+| S5 | Survey 分工 | ⏳ 待會議（Discuss 議題 2） |
+| S6 | Survey 與提案時程 | ⏳ 待會議（Discuss 議題 3） |
+| Q8 | 收費政策：AI 不單獨收費 | ⏳ 待會議（Discuss 議題 6） |
+| Q9 | 方案命名 | ⏳ 待會議（Discuss 議題 7） |
+
+待決議題的背景、選項與建議見 [`../Discuss/Next_Meeting_Agenda.md`](../Discuss/Next_Meeting_Agenda.md)。
