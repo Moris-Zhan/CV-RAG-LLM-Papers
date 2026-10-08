@@ -11,3 +11,4 @@
 | Q5 | AI 系統架構：Survey 後提出建議（見 paper_survey.md §3） | ⏳ 待確認 |
 | Q6 | 創新服務：「車況接力」誠實回報換和泰 Points、車況影響整備與派車、下一位用戶取車前預警 | ✅ 定案 |
 | Q7 | 影片：輕量可運作 demo（上傳照片→品質檢查＋整潔判讀）＋完整流程畫面 mockup | ✅ 定案 |
+| S1–S4 | Paper survey：兩階段（10/11 前服務初賽）、補搜 A／D 方向、Tier 1–3 分級、`Contest/Paper/` 目錄（見 ../Paper/Plan.md） | ✅ 定案 |
