@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="style.css">
+<style>
+body { background: var(--bg); }
+.status, .nav { background: #fff; }
+.nav { --progress: 85%; }
+.wrap { padding: 10px 14px 0; }
+.sec { background: #fff; border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; }
+.sec-title { display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.photo { position: relative; height: 150px; border-radius: 10px; overflow: hidden; background: #2c2f36; }
+.det { position: absolute; border: 2.5px solid var(--red); border-radius: 4px; }
+.det span { position: absolute; top: -20px; left: -2px; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+.grade { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.grade h3 { font-size: 18px; }
+.grade h3 em { font-style: normal; color: var(--red); }
+.scale { display: flex; border-radius: 999px; overflow: hidden; border: 1px solid var(--line); font-size: 12px; }
+.scale span { padding: 3px 9px; color: var(--muted); }
+.scale span.on { background: var(--red); color: #fff; font-weight: 700; }
+.reason { font-size: 13px; color: #444; margin-top: 4px; }
+.notice { margin-top: 8px; background: #fff6dc; color: #8a5a00; font-size: 13px; font-weight: 500; padding: 7px 10px; border-radius: 8px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pair figure { background: #eef0f3; border-radius: 10px; height: 118px; position: relative; overflow: hidden; }
+.pair figcaption { position: absolute; top: 6px; left: 6px; font-size: 11px; font-weight: 700; background: rgba(255,255,255,.92); padding: 1px 6px; border-radius: 4px; z-index: 2; }
+.pair img { position: absolute; width: 176px; left: -6px; top: 26px; }
+.scratch { position: absolute; left: 60px; top: 58px; width: 46px; height: 26px; }
+.flag { position: absolute; left: 52px; top: 50px; width: 62px; height: 40px; border: 2.5px solid var(--orange); border-radius: 6px; }
+.flag-label { margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--orange); }
+.pending { margin-top: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; color: var(--muted); background: #f4f4f6; padding: 7px 10px; border-radius: 8px; }
+.pending a { color: var(--red); font-weight: 700; text-decoration: underline; }
+.bottom { position: absolute; left: 14px; right: 14px; bottom: 22px; }
+</style></head>
+<body>
+<div class="status"><span>9:41</span><span class="right">●●●● 5G ▮</span></div>
+<div class="nav"><span class="icon">‹</span><h1>還車檢查結果</h1><span class="icon">☏</span></div>
+<div class="wrap">
+  <div class="sec">
+    <div class="sec-title"><span>車內整潔</span><span class="ai-chip"><i></i>AI 判讀</span></div>
+    <div class="photo">
+      <svg width="362" height="150" viewBox="0 0 362 150">
+        <rect width="362" height="150" fill="#30343c"/>
+        <rect x="16" y="22" width="330" height="70" rx="16" fill="#4b4f58"/>
+        <rect x="16" y="86" width="330" height="56" rx="12" fill="#585d67"/>
+        <line x1="128" y1="24" x2="128" y2="140" stroke="#3a3e46" stroke-width="3"/>
+        <line x1="236" y1="24" x2="236" y2="140" stroke="#3a3e46" stroke-width="3"/>
+        <rect x="60" y="62" width="24" height="40" rx="4" fill="#e9e3d6"/>
+        <rect x="58" y="58" width="28" height="7" rx="3" fill="#c9332b"/>
+        <line x1="74" y1="40" x2="70" y2="60" stroke="#ddd" stroke-width="3"/>
+        <path d="M250 96 q20 -30 46 -8 q12 18 -6 34 q-26 10 -44 -6 z" fill="#d7dde6" opacity=".9"/>
+        <path d="M262 100 q10 -10 22 -2" stroke="#b9c1cc" stroke-width="2" fill="none"/>
+        <circle cx="170" cy="118" r="9" fill="#7a5a3a" opacity=".85"/>
+        <circle cx="184" cy="122" r="5" fill="#7a5a3a" opacity=".7"/>
+      </svg>
+      <div class="det" style="left:52px;top:52px;width:42px;height:56px"><span>飲料杯</span></div>
+      <div class="det" style="left:244px;top:80px;width:62px;height:52px"><span>塑膠袋</span></div>
+      <div class="det" style="left:156px;top:104px;width:38px;height:30px"><span>食物殘渣</span></div>
+    </div>
+    <div class="grade"><h3>整潔等級：<em>髒汙</em></h3><div class="scale"><span>乾淨</span><span>普通</span><span class="on">髒汙</span></div></div>
+    <div class="reason">後座有飲料杯與食物包裝</div>
+    <div class="notice">⚠ 已通知營運，本車暫停出租</div>
+  </div>
+  <div class="sec">
+    <div class="sec-title"><span>對照證據</span><span class="ai-chip"><i></i>AI 比對</span></div>
+    <div class="pair">
+      <figure><figcaption>取車基準</figcaption><img src="assets/car.png"></figure>
+      <figure><figcaption>還車照</figcaption><img src="assets/car.png">
+        <svg class="scratch" viewBox="0 0 46 26"><path d="M3 20 L40 6 M8 23 L43 11" stroke="#5a5f66" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <div class="flag"></div></figure>
+    </div>
+    <div class="flag-label">疑似新車損：左前車門刮痕</div>
+    <div class="pending"><span>待人工確認，不會直接收費</span><a>我有疑問，提出申訴</a></div>
+  </div>
+</div>
+<div class="bottom"><div class="btn primary">確認還車</div></div>
+</body></html>

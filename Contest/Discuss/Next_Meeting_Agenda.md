@@ -13,7 +13,7 @@
 | 22:00 | PDF 與影片初版完成 |
 | 10/14 09:00–11:00 | 最終修訂、繳件檢查表 |
 | 10/14 11:00 | 隊長上傳並送出，截圖存證 |
-- 工作檔：[`../iRent/proposal/iRent_車況接力AI_初賽提案_v4.pptx`](../iRent/proposal/iRent_車況接力AI_初賽提案_v4.pptx)（P8–P10 已對齊三環節與取車基準 ADR 0002；附錄題目需求對照表）
+- 工作檔：[`../iRent/proposal/iRent_車況接力AI_初賽提案_v5.pptx`](../iRent/proposal/iRent_車況接力AI_初賽提案_v5.pptx)（P8–P10 已完成，含三環節原型畫面；附錄題目需求對照表）
 - 頁面設計依據：[`Proposal_Blueprint.md`](Proposal_Blueprint.md)；用語依 [`../iRent/GLOSSARY.md`](../iRent/GLOSSARY.md)
 - 會後產出：[`Meeting_Minutes_Template.md`](Meeting_Minutes_Template.md) 紀錄 → 定案寫回 [`../iRent/DECISIONS.md`](../iRent/DECISIONS.md) → 產出 v2
 
@@ -172,4 +172,4 @@ v2 只列「要決定的事」，但 v1 骨架顯示每頁還缺兩類東西：*
 | A3 | 取還車範例照片（自拍） | P6 | 待定 | 10/13 17:00 |
 | A4 | 後台儀表板 mockup | P7 | C、B | 10/13 18:00 |
 | A5 | 系統架構圖 | P8 | ✅ 已完成（v2） | — |
-| A6 | demo 截圖三張（環節一品質檢查、環節二整潔＋比對、環節三儀表板）與錄影 | P10、影片 | A、B | 10/13 18:00 |
+| A6 | demo 截圖三張與錄影 | P10、影片 | ✅ 原型畫面已完成（v5）；實機 demo 錄影待 A、B | 10/13 18:00 |
