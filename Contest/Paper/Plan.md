@@ -37,7 +37,7 @@ Phase 1 的唯一驗收標準：**10/11 開始寫簡報時，每一個技術主�
 | 2 | C | The Change You Want to See（WACV 2023） | [arXiv 2209.14341](https://arxiv.org/abs/2209.14341) | 取還車比對的方法基礎：物件級變化偵測，可容忍視角與光線差異 |
 | 3 | C | AnomalyGPT（AAAI 2024） | [arXiv 2308.15366](https://arxiv.org/abs/2308.15366) | 「取車照＝正常參考圖」的一張參考異常偵測 |
 | 4 | E | Harnessing GPT-4V(ision) for Insurance | [arXiv 2404.09690](https://arxiv.org/abs/2404.09690) | VLM 在車險定損的能力與限制，支撐「AI 不單獨收費」 |
-| 5 | D | Architecture for determining the cleanliness in shared vehicles（J. Big Data 2023） | [Springer](https://link.springer.com/article/10.1186/s40537-023-00696-6) | 共享車內整潔判讀：EfficientDet 遺留物偵測，mAP 0.87 |
+| 5 | D | Architecture for determining the cleanliness in shared vehicles（J. Big Data 2023） | [Springer](https://link.springer.com/article/10.1186/s40537-023-00696-6) | 共享車內整潔判讀：CNN 遺留物偵測，細分類準確率 89%、垃圾／貴重物品 91%（1,379 張公開資料集）；作者將「離散整潔等級」列為未來工作 |
 
 ### Tier 2｜Phase 1 單頁筆記 7 篇
 
@@ -50,6 +50,8 @@ Phase 1 的唯一驗收標準：**10/11 開始寫簡報時，每一個技術主�
 | 10 | D | Classification of Trash and Valuables with Machine Vision in Shared Cars（Applied Sciences 2022） | [MDPI](https://www.mdpi.com/2076-3417/12/11/5695) |
 | 11 | D／F | Scalable Object Detection in the Car Interior With Vision Foundation Models（2025） | [arXiv 2508.19651](https://arxiv.org/abs/2508.19651) |
 | 12 | F | Grounding DINO（ECCV 2024） | [arXiv 2303.05499](https://arxiv.org/abs/2303.05499) |
+| 13 | D／E | Enhancing Waste Recognition with Vision-Language Models: A Prompt Engineering Approach（Waste Management 2025）：提示詞工程使零樣本垃圾分類 82.71% → 90.48% | [Monash](https://research.monash.edu/en/publications/enhancing-waste-recognition-with-vision-language-models-a-prompt-/) |
+| 14 | D／E | Search-based Testing of Vision Language Models for In-Car Scene Understanding（ISU-Test, arXiv 2026）：VLM 車內場景理解的系統性測試 | [arXiv 2607.02300](https://arxiv.org/abs/2607.02300) |
 
 ### Tier 3｜引用清單
 
@@ -141,7 +143,7 @@ Contest/Paper/
 | 決策 | 內容 |
 |---|---|
 | Survey 目的 | 兩階段：Phase 1 服務初賽（10/11 前），Phase 2 服務決賽 |
-| 補強搜尋 | A、D 兩方向已補搜（新增 #5、#6、#7、#10、#11） |
+| 補強搜尋 | A、D 兩方向已補搜（新增 #5、#6、#7、#10、#11）；整潔分級依 Survey.md 新增 #13、#14（見 [`cleanliness_grading.md`](cleanliness_grading.md)） |
 | 分級 | Tier 1 五篇完整精讀、Tier 2 單頁筆記、Tier 3 僅引用 |
 | 目錄 | 沿用 repo 慣例 `papers/` + `notes/{paper}/` |
 | 分工與時程 | ⏳ 待下次會議決定（Discuss 議題 2、3） |
