@@ -7,4 +7,4 @@
 
 ## Relationships
 
-- **Papers ↔ iRent**：兩者互相獨立。iRent 提案引用的文獻調查放在 `Contest/` 底下，不納入 `CV／RAG／LLM` 的論文索引。
+- **Papers ↔ iRent**：兩者互相獨立。iRent 提案引用的文獻調查放在 `Contest/` 底下，不納入 `CV／Speech／RAG／LLM` 的論文索引。
