@@ -13,7 +13,7 @@
 | 22:00 | PDF 與影片初版完成 |
 | 10/14 09:00–11:00 | 最終修訂、繳件檢查表 |
 | 10/14 11:00 | 隊長上傳並送出，截圖存證 |
-- 工作檔：[`../iRent/proposal/iRent_車況接力AI_初賽提案_v10.pptx`](../iRent/proposal/iRent_車況接力AI_初賽提案_v10.pptx)（P4–P15 已完成：v9 整合團隊「解決方案設計」3 頁、v10 整合「目標對象與痛點」3 頁；P1–P3 仍為骨架；附錄題目需求對照表）
+- 工作檔：[`../iRent/proposal/iRent_車況接力AI_初賽提案_v11.pptx`](../iRent/proposal/iRent_車況接力AI_初賽提案_v11.pptx)（P1–P15 已完成：v9 整合團隊「解決方案設計」3 頁、v10 整合「目標對象與痛點」3 頁、v11 完成「提案概述」並定團隊名稱「優還」；附錄題目需求對照表）
 - 頁面設計依據：[`Proposal_Blueprint.md`](Proposal_Blueprint.md)；用語依 [`../iRent/GLOSSARY.md`](../iRent/GLOSSARY.md)
 - 會後產出：[`Meeting_Minutes_Template.md`](Meeting_Minutes_Template.md) 紀錄 → 定案寫回 [`../iRent/DECISIONS.md`](../iRent/DECISIONS.md) → 產出 v2
 
@@ -144,7 +144,7 @@ v2 只列「要決定的事」，但 v1 骨架顯示每頁還缺兩類東西：*
 
 | # | 議題 | 建議 | 結果 |
 |---|---|---|---|
-| D1 | 團隊名稱、隊長、角色 | 依專長 | |
+| D1 | 團隊名稱、隊長、角色 | 依專長 | 團隊名稱：優還（隊長、角色待定） |
 | D2 | 產品名稱與標語 | iRent 車況接力 AI | |
 | D3 | 數量假設 | 公開數字＋註明推估 | |
 | D4 | 主軸與 Persona | 雙邊信任 | |
