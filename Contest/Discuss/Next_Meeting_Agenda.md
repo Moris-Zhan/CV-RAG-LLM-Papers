@@ -13,7 +13,7 @@
 | 22:00 | PDF 與影片初版完成 |
 | 10/14 09:00–11:00 | 最終修訂、繳件檢查表 |
 | 10/14 11:00 | 隊長上傳並送出，截圖存證 |
-- 工作檔：[`../iRent/proposal/iRent_車況接力AI_初賽提案_v14.pptx`](../iRent/proposal/iRent_車況接力AI_初賽提案_v14.pptx)（P1–P15 已完成；v14 改為科技／汽車風格：深色封面、內容頁深色標題帶＋淺灰格線底、統一頁尾與頁碼；附錄題目需求對照表）
+- 工作檔：[`../iRent/proposal/iRent_車況接力AI_初賽提案_v15.pptx`](../iRent/proposal/iRent_車況接力AI_初賽提案_v15.pptx)（P1–P15 已完成；科技／汽車風格定稿；v15 修正 P5–P7 中文亂碼，全份中文字型統一為微軟正黑體；附錄題目需求對照表）
 - 頁面設計依據：[`Proposal_Blueprint.md`](Proposal_Blueprint.md)；用語依 [`../iRent/GLOSSARY.md`](../iRent/GLOSSARY.md)
 - 會後產出：[`Meeting_Minutes_Template.md`](Meeting_Minutes_Template.md) 紀錄 → 定案寫回 [`../iRent/DECISIONS.md`](../iRent/DECISIONS.md) → 產出 v2
 
