@@ -13,7 +13,7 @@
 | 22:00 | PDF 與影片初版完成 |
 | 10/14 09:00–11:00 | 最終修訂、繳件檢查表 |
 | 10/14 11:00 | 隊長上傳並送出，截圖存證 |
-- 工作檔：[`../iRent/proposal/iRent_車況接力AI_初賽提案_v3.pptx`](../iRent/proposal/iRent_車況接力AI_初賽提案_v3.pptx)（P8–P10 AI 應用方法已對齊題目三環節；附錄題目需求對照表）
+- 工作檔：[`../iRent/proposal/iRent_車況接力AI_初賽提案_v4.pptx`](../iRent/proposal/iRent_車況接力AI_初賽提案_v4.pptx)（P8–P10 已對齊三環節與取車基準 ADR 0002；附錄題目需求對照表）
 - 頁面設計依據：[`Proposal_Blueprint.md`](Proposal_Blueprint.md)；用語依 [`../iRent/GLOSSARY.md`](../iRent/GLOSSARY.md)
 - 會後產出：[`Meeting_Minutes_Template.md`](Meeting_Minutes_Template.md) 紀錄 → 定案寫回 [`../iRent/DECISIONS.md`](../iRent/DECISIONS.md) → 產出 v2
 
@@ -149,7 +149,7 @@ v2 只列「要決定的事」，但 v1 骨架顯示每頁還缺兩類東西：*
 | D3 | 數量假設 | 公開數字＋註明推估 | |
 | D4 | 主軸與 Persona | 雙邊信任 | |
 | D5 | 規則 R1–R6 | 依建議值 | |
-| D6 | 取車基準 | 上一位還車照＋簽名前異常照片；缺漏視角補拍 | |
+| D6 | 取車基準 | 上一位還車照＋簽名前異常照片；缺漏視角補拍 | ✅ 已定案（會前，D6a–D6c 見 DECISIONS） |
 | D7 | AI 不單獨收費／點名 Hertz | 主張；未查證則不點名 | |
 | D8 | 已實作 vs. 規劃中 | 架構圖兩種標示 | |
 | D9 | 模型具體程度 | 類別＋代表作 | |
