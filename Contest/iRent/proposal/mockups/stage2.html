@@ -18,6 +18,9 @@ body { background: var(--bg); }
 .scale span.on { background: var(--red); color: #fff; font-weight: 700; }
 .reason { font-size: 13px; color: #444; margin-top: 4px; }
 .notice { margin-top: 8px; background: #fff6dc; color: #8a5a00; font-size: 13px; font-weight: 500; padding: 7px 10px; border-radius: 8px; }
+.left-item { margin-top: 6px; background: #e8f1fd; color: #1f5fbf; font-size: 13px; font-weight: 500; padding: 7px 10px; border-radius: 8px; }
+.det.blue { border-color: #2f6bc4; }
+.det.blue span { background: #2f6bc4; }
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .pair figure { background: #eef0f3; border-radius: 10px; height: 118px; position: relative; overflow: hidden; }
 .pair figcaption { position: absolute; top: 6px; left: 6px; font-size: 11px; font-weight: 700; background: rgba(255,255,255,.92); padding: 1px 6px; border-radius: 4px; z-index: 2; }
@@ -47,16 +50,19 @@ body { background: var(--bg); }
         <line x1="74" y1="40" x2="70" y2="60" stroke="#ddd" stroke-width="3"/>
         <path d="M250 96 q20 -30 46 -8 q12 18 -6 34 q-26 10 -44 -6 z" fill="#d7dde6" opacity=".9"/>
         <path d="M262 100 q10 -10 22 -2" stroke="#b9c1cc" stroke-width="2" fill="none"/>
+        <rect x="160" y="40" width="20" height="32" rx="3" fill="#15171c" stroke="#8a8f99" stroke-width="1.5"/>
         <circle cx="170" cy="118" r="9" fill="#7a5a3a" opacity=".85"/>
         <circle cx="184" cy="122" r="5" fill="#7a5a3a" opacity=".7"/>
       </svg>
       <div class="det" style="left:52px;top:52px;width:42px;height:56px"><span>飲料杯</span></div>
       <div class="det" style="left:244px;top:80px;width:62px;height:52px"><span>塑膠袋</span></div>
       <div class="det" style="left:156px;top:104px;width:38px;height:30px"><span>食物殘渣</span></div>
+      <div class="det blue" style="left:154px;top:34px;width:32px;height:44px"><span>遺留物：手機</span></div>
     </div>
     <div class="grade"><h3>整潔等級：<em>髒汙</em></h3><div class="scale"><span>乾淨</span><span>普通</span><span class="on">髒汙</span></div></div>
     <div class="reason">後座有飲料杯與食物包裝</div>
     <div class="notice">⚠ 已通知營運，本車暫停出租</div>
+    <div class="left-item">📱 發現遺留物：手機，已通知客服聯繫上一位用戶</div>
   </div>
   <div class="sec">
     <div class="sec-title"><span>對照證據</span><span class="ai-chip"><i></i>AI 比對</span></div>
