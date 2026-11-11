@@ -11,7 +11,7 @@
 
 ## 以原生表格／圖表重建
 
-- Table 2（slide 17 原生表格；slide 11 節錄 Units 列）、Table 3（slide 18 原生長條圖）依原文數值逐筆輸入。
+- Table 2（slide 17 原生表格；slide 11 節錄 C0–C3 的 Units 列，並附報告者推算的 map 呼叫次數）、Table 3（slide 18 原生長條圖）依原文數值逐筆輸入。
 - Algorithm 1 與 Table 1（slide 14）、六種比較條件（slide 15）以原生圖形與表格重建，Table 1 範例保留原文英文。
 - 附錄 E.1–E.4 的 prompt（slide 5、10、12）以原生文字節錄關鍵英文原句，未截圖。
 - slide 7（NeoChip 建圖示意）、slide 9（社群摘要組裝流程）為報告者依 §3.1.2–3.1.5 以原生圖形繪製。

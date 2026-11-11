@@ -1,10 +1,10 @@
 # PPTX Quality Audit
 
 - File: `RAG/2024_GraphRAG/slides_zh-TW.pptx`
-- Slides: 20
+- Slides: 22
 - Embedded media: 4
-- Notes slides: 20
-- Findings: high=0, medium=0, low=49
+- Notes slides: 22
+- Findings: high=0, medium=0, low=51
 
 ## Findings
 
@@ -59,6 +59,8 @@
 | low | 20 | `alignment_near_miss` | Two objects have top-edge near-miss alignment (2.9 pt apart) |
 | low | 20 | `alignment_near_miss` | Two objects have top-edge near-miss alignment (2.9 pt apart) |
 | low | 20 | `alignment_near_miss` | Two objects have top-edge near-miss alignment (2.9 pt apart) |
+| low | 22 | `alignment_near_miss` | Two objects have left-edge near-miss alignment (6.5 pt apart) |
+| low | 22 | `alignment_near_miss` | Two objects have left-edge near-miss alignment (6.5 pt apart) |
 
 ## Scope
 
