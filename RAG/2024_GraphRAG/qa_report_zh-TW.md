@@ -36,6 +36,11 @@
   - 原文溯源：以 PyMuPDF 抽出 paper.pdf 全文，第 3–12 頁備忘稿中 111 個多位數數字全部能在原文找到（標示「推算」的句子除外）；植入假數字的反向測試能正確抓出
   - 移出內容抽查：chunk 600／100 與兩倍、logit bias 100、claim 定義（第 5 頁），58.1%（第 8 頁），47,075 claims 與 78%（第 10 頁）皆在備忘稿中
   - 渲染逐頁檢查：26 頁標題皆一行、無重疊；修正第 11、12 頁重點帶重複，以及第 8 頁流程框留白
+- 備用頁實作對照（OpenSpec change `add-code-refs-to-graphrag-backup-slides`）：
+  - 第 13–21 頁底部新增「實作對照」窄條，列出主要模組檔案與 prompt 常數；講者備註列完整路徑；版本 `microsoft/graphrag` `34b2b67`（3.3.0）只標在第 13 頁；只列位置，不寫實作行為、預設值或與論文的差異
+  - 以腳本在 `34b2b67` 驗證：32 個 `.py` 路徑全部存在；8 個 prompt 常數與 `_process_document`、`_standard_workflows`、`build_community_context`、`read_indexer_reports`、`combined_degree` 都能在原始碼找到
+  - 正文第 1–12 頁的投影片與備忘稿沒有 `.py`、`graphrag/` 或 prompt 常數；全份「開源實作」「預設值」「預設關閉」「code_notes」為 0
+  - 窄條上方重疊的元素改為上移或縮短高度（第 13、15、16、19、20、21 頁），第 15 頁 prompt 面板縮短 0.15 in；第 13 頁原版本註記併入窄條
 - 數字逐筆對照原文：Figure 2 勝率區間、Table 2 全部 30 格、Table 3 全部 12 格、§4.1 資料集 chunk 數、§5.1 圖規模、§5.2 的 47,075 claims 與 78% / 69–70% 一致率
 
 ## 與原文不一致或需保留的地方
@@ -64,7 +69,7 @@
 
 ## 程式化檢查（scripts/audit_pptx_quality.py）
 
-- 最終結果：high = 0、medium = 0、low = 56（詳見 `pptx_audit_zh-TW.md`），皆為對齊微差（`alignment_near_miss`）
+- 最終結果：high = 0、medium = 0、low = 63（詳見 `pptx_audit_zh-TW.md`），皆為對齊微差（`alignment_near_miss`）
 - 另以 python-pptx 重新開啟，確認形狀皆在投影片範圍內、每頁皆有講者備註
 
 ## 已知限制
