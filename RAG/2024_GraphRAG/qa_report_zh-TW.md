@@ -49,6 +49,13 @@
 - slide 26 列出的 8 項「原文未說明」逐項對照原文確認；slide 27 的計分方式取自附錄 F.1 與附錄 G 的 Table 6 說明。
 - slide 4 提到的既有階層式摘要方法，原文引用 Kim et al. 2023 與 Sarthi et al. 2024（RAPTOR）；投影片不點名，僅在講者備註提及。
 
+## OOXML 結構驗證（Open XML SDK）
+
+- 以 Microsoft Open XML SDK（DocumentFormat.OpenXml 3.1.1，Office 2016 schema）驗證，最終結果：0 個錯誤
+- 修正前抓到兩類會讓 PowerPoint 要求「修復」的問題（LibreOffice 都會容忍，所以渲染檢查沒發現）：
+  - slide 12 示意圖連線的座標為小數 EMU（16 個屬性）→ 改用整數除法
+  - slide 23 長條圖的座標軸 ID 為負數（python-pptx 預設圖表範本的值，不符合 UInt32）→ 建置時改寫為正整數，軸與交叉軸的對應不變
+
 ## 程式化檢查（scripts/audit_pptx_quality.py）
 
 - 最終結果：high = 0、medium = 0、low = 71（詳見 `pptx_audit_zh-TW.md`），皆為對齊微差（`alignment_near_miss`）
