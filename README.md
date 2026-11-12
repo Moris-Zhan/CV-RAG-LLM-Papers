@@ -20,6 +20,8 @@ CV-RAG-LLM-Papers/
 │       ├── qa_report_<語言>.md        # 簡報品質報告
 │       ├── pptx_audit_<語言>.md       # 簡報程式化檢查結果
 │       ├── asset_manifest.md          # 簡報圖片出處
+│       ├── GLOSSARY.md                # 選用：該論文的技術名詞
+│       ├── code_notes_zh-TW.md        # 選用：論文對照開源實作的程式碼筆記
 │       └── assets/figures/            # 從原文擷取的圖
 ├── Contest/                 # 非論文資料：2026 AI 黑客松競賽情報與 iRent 提案
 ├── docs/adr/                # 架構決策記錄
@@ -55,7 +57,7 @@ CV-RAG-LLM-Papers/
 ## 命名規則
 
 - **論文 ID**：`<年份>_<簡稱>`，只用英數字、`-` 與 `_`，例如 `2025_WiCkeD`、`2025_D-GEN`。年份為正式發表或 arXiv 首版年份；會議與 arXiv 編號寫在索引，不寫進 ID。
-- **論文資料夾內的檔名**：固定為 `paper.pdf`、`slides_<語言>.pptx`、`slides_deepread_<語言>.pptx`、`qa_report_<語言>.md`、`pptx_audit_<語言>.md`、`asset_manifest.md`、`assets/figures/`。
+- **論文資料夾內的檔名**：固定為 `paper.pdf`、`slides_<語言>.pptx`、`slides_deepread_<語言>.pptx`、`qa_report_<語言>.md`、`pptx_audit_<語言>.md`、`asset_manifest.md`、`assets/figures/`；選用的 `GLOSSARY.md`（該論文的技術名詞，需在 `GLOSSARY-MAP.md` 登記）與 `code_notes_<語言>.md`（論文對照開源實作的程式碼筆記，需釘選版本）。
 - **語言代碼**：`zh-TW`（繁體中文，主要版本）、`zh-CN`（簡體中文）。
 
 ## 論文索引
