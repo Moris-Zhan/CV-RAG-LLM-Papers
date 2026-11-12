@@ -49,3 +49,87 @@
 #### Scenario: 被問到勝率怎麼算
 - **WHEN** 聽眾問「72% 勝率」的意思
 - **THEN** 備用頁寫明每題勝者 100、敗者 0、平手各 50，再對 5 次評審取平均
+
+### Requirement: 第 2 頁為目錄頁
+
+簡報 SHALL 在封面之後的第 2 頁放目錄頁，依論文的討論面向分組，列出每組的小主題與對應頁碼；備用頁 MUST 另列一行並標示「不播放」。目錄頁的頁碼 MUST 與實際頁碼一致。
+
+#### Scenario: 從目錄找到方法細節
+- **WHEN** 報告者在目錄頁找「方法：索引階段」的「claim」
+- **THEN** 目錄列出該小主題的頁碼，翻到該頁即為 claim 的專頁
+
+#### Scenario: 頁碼一致
+- **WHEN** 比對目錄頁列出的每個頁碼與簡報實際頁碼
+- **THEN** 全部一致，且備用頁那一行標示「不播放」
+
+### Requirement: 程式碼識別字只作為對照標籤
+
+簡報中出現的開源實作識別字 SHALL 只限 workflow 名稱與查詢模組名稱，且只出現在方法頁的 kicker 標籤與 workflow 總覽頁。投影片正文、講者備註與備用頁 MUST NOT 陳述實作行為、預設值，或實作與論文的差異。
+
+#### Scenario: 總覽頁列出 9 個 workflow
+- **WHEN** 查看 workflow 總覽頁
+- **THEN** 依實作順序列出 9 個 standard workflow；有論文對應的標出論文步驟名稱，`create_final_documents`、`create_final_text_units`、`generate_text_embeddings` 只列名稱，並註明對照版本
+
+#### Scenario: 不出現實作行為
+- **WHEN** 掃描所有投影片文字與講者備註
+- **THEN** 找不到實作預設值、「預設關閉」「開源實作」等描述，也沒有指向程式碼筆記的句子
+
+### Requirement: 可見文字不含章節標號
+
+投影片上可見的文字（標題、kicker、正文、圖說、表格）MUST NOT 含「§」章節號或「附錄 X」標號；圖表來源 SHALL 以 Fig.、Table、Algorithm 編號標示。講者備註可以保留章節號。
+
+#### Scenario: 標號掃描
+- **WHEN** 以 `§` 與「附錄」搜尋所有投影片的可見文字
+- **THEN** 結果為 0 筆，講者備註不在掃描範圍內
+
+### Requirement: 論文有對應的 workflow 都有專頁
+
+方法段 SHALL 讓每個在論文有對應步驟的 workflow 至少有一頁專頁，並在該頁 kicker 標出 workflow 名稱；論文沒有對應的 workflow MUST NOT 開專頁。
+
+#### Scenario: GraphRAG 方法段
+- **WHEN** 檢查方法頁的 kicker 標籤
+- **THEN** `create_base_text_units`、`extract_graph`、`finalize_graph`、`extract_covariates`、`create_communities`、`create_community_reports` 各至少出現在一頁，且沒有任何一頁的 kicker 標 `create_final_documents`、`create_final_text_units` 或 `generate_text_embeddings`
+
+### Requirement: 正文頁數受報告時間約束
+
+用於 15 分鐘報告的論文簡報，正文（封面到結論頁）SHALL 不超過 12 頁；其餘頁面 MUST 放在結論頁之後的備用頁區段，並在 kicker 標示「備用頁 · 不播放」。
+
+#### Scenario: GraphRAG 簡報的頁數
+- **WHEN** 計算 `RAG/2024_GraphRAG/slides_zh-TW.pptx` 中結論頁之前（含結論頁）的頁數
+- **THEN** 為 12 頁，且結論頁之後的每一頁 kicker 都以「備用頁 · 不播放」開頭
+
+### Requirement: 正文頁採結論式標題與單一主視覺
+
+每個正文內容頁 SHALL 以一行結論式標題陳述該頁重點，並只放一個主視覺：一張原文圖、一個原生表格或圖表、一張流程圖，或一個關鍵數字。條列 MUST 不超過 3 點。封面與目錄頁不受此限。
+
+#### Scenario: 3 秒讀出重點
+- **WHEN** 只讀某個正文內容頁的標題
+- **THEN** 能得知該頁的結論（例如「全域方法在全面性與多樣性上對向量 RAG 勝率 62–83%」），而不是只有主題名稱（例如「實驗結果」）
+
+#### Scenario: 版面密度
+- **WHEN** 檢查每個正文內容頁
+- **THEN** 只有一個圖片、表格、圖表或流程圖作為主視覺，且條列不超過 3 點
+
+### Requirement: 備忘稿承載講稿與技術細節
+
+每個正文內容頁的講者備註 SHALL 依序包含四段：「重點」（一句話）、「講稿」、「技術細節」、「可能追問」。從正文移出或合併掉的內容，其要點 MUST 出現在對應正文頁的「技術細節」段。
+
+#### Scenario: 備忘稿結構
+- **WHEN** 打開任一正文內容頁的講者備註
+- **THEN** 依序看到「重點」「講稿」「技術細節」「可能追問」四段標記
+
+#### Scenario: 移出的內容不遺失
+- **WHEN** 檢查原本在正文、這次被移出或合併的頁面（例如 chunk 切分、gleaning、claim、context 視窗）
+- **THEN** 它們的關鍵數字與結論出現在對應正文頁的「技術細節」段，或該頁本身保留在備用頁
+
+### Requirement: 備忘稿數字可追溯到原文
+
+備忘稿中的每個數字 SHALL 能在原文找到，或由原文數字直接算出並標示「推算」。技術細節段 MUST 附原文章節、圖或表的編號作為出處；原文沒有的內容 MUST 標示「報告者補充」。
+
+#### Scenario: 數字溯源檢查
+- **WHEN** 以腳本抽出所有正文頁備忘稿中的數字，逐一比對原文全文
+- **THEN** 每個數字都在原文出現，或位於標示「推算」的句子中，或是章節、頁碼等編號
+
+#### Scenario: 出處標註
+- **WHEN** 閱讀任一正文頁備忘稿的「技術細節」段
+- **THEN** 每個技術陳述都附有原文的 § 章節、Fig.、Table、Algorithm 或附錄編號
