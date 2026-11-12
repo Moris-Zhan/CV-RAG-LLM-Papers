@@ -108,7 +108,7 @@
   |---|---|
   | 研究背景 | 向量 RAG 的瓶頸（3） |
   | 核心想法與管線 | 核心想法（4）；GraphRAG 管線（5）；論文步驟與 workflow 對照（6） |
-  | 方法：索引階段 | chunk 切分（7）；元素擷取 prompt（8）；自我反思（9）；建構知識圖譜（10）；claim（11）；節點 degree 與邊顯著度（12）；階層式社群（13）；community summary 的 context 組裝（14）；社群報告格式（15） |
+  | 方法：索引階段 | chunk 切分（7）；元素擷取 prompt（8）；自我反思（9）；建構知識圖譜（10）；claim（11）；節點 degree 與邊顯著度（12）；階層式社群（13）；community summary 的 context 組裝（14）；community summary 的 JSON 格式（15） |
   | 方法：查詢階段 | map-reduce（16）；回答 prompt（17）；context 視窗與實驗設定（18） |
   | 評測設計 | 問題生成（19）；評分與比較條件（20） |
   | 結果與驗證 | 實驗 1 勝率（21）；成本（22）；實驗 2 claims 驗證（23） |
