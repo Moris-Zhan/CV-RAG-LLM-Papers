@@ -23,7 +23,7 @@ _Avoid_: 原文摘要法、全文摘要
 ## 索引
 
 **Claim**：
-LLM 從 chunk 中針對實體抽出的事實陳述，例如日期、事件，或與其他實體的互動。
+LLM 從 chunk 中針對實體抽出的事實陳述，例如日期、事件，或與其他實體的互動；是索引的一部分，與評測用的 factual claim 不同。
 _Avoid_: 共變量（covariate）、事實三元組
 
 **自我反思（Gleaning）**：
@@ -59,3 +59,9 @@ _Avoid_: 相關度分數、重要度分數
 **全域答案（Global answer）**：
 reduce 步驟合併 community answer 後，回給使用者的最終答案。
 _Avoid_: 最終摘要、總答案
+
+## 評測
+
+**factual claim（事實陳述）**：
+從答案中抽出、明確陳述可驗證事實的句子，用來量測答案的全面性與多樣性；與索引中的 Claim 不同。
+_Avoid_: Claim（指索引中的 claim）
