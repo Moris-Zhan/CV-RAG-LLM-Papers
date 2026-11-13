@@ -57,7 +57,7 @@ CV-RAG-LLM-Papers/
 ## 命名規則
 
 - **論文 ID**：`<年份>_<簡稱>`，只用英數字、`-` 與 `_`，例如 `2025_WiCkeD`、`2025_D-GEN`。年份為正式發表或 arXiv 首版年份；會議與 arXiv 編號寫在索引，不寫進 ID。
-- **論文資料夾內的檔名**：固定為 `paper.pdf`、`slides_<語言>.pptx`、`slides_deepread_<語言>.pptx`、`qa_report_<語言>.md`、`pptx_audit_<語言>.md`、`asset_manifest.md`、`assets/figures/`；選用的 `GLOSSARY.md`（該論文的技術名詞，需在 `GLOSSARY-MAP.md` 登記）與 `code_notes_<語言>.md`（論文對照開源實作的程式碼筆記，需釘選版本）。
+- **論文資料夾內的檔名**：固定為 `paper.pdf`、`slides_<語言>.pptx`、`slides_deepread_<語言>.pptx`、`qa_report_<語言>.md`、`pptx_audit_<語言>.md`、`asset_manifest.md`、`assets/figures/`；選用的 `GLOSSARY.md`（該論文的技術名詞，需在 `GLOSSARY-MAP.md` 登記）與 `code_notes_<語言>.md`（論文對照開源實作的程式碼筆記，需釘選版本）；選用的完整版簡報保留原始檔名（例如 `graph-rag-full-slides_zh-TW.pptx`）。
 - **語言代碼**：`zh-TW`（繁體中文，主要版本）、`zh-CN`（簡體中文）。
 
 ## 論文索引
@@ -70,7 +70,7 @@ CV-RAG-LLM-Papers/
 | [LLM/2025_COLING-MCQGen](LLM/2025_COLING-MCQGen/) | Automatic Multiple-Choice Question Generation and Evaluation Systems Based on LLM: A Study Case With University Resolutions | COLING 2025 | `MCQ-Benchmark` `Distractor-Gen` `QA-Synthesis` `LLM-as-Judge` | [zh-TW](LLM/2025_COLING-MCQGen/slides_zh-TW.pptx) |
 | [LLM/2025_D-GEN](LLM/2025_D-GEN/) | D-GEN: Automatic Distractor Generation and Evaluation for Reliable Assessment of Generative Models | arXiv:2504.13439 | `Distractor-Gen` `LLM-as-Judge` | [zh-TW](LLM/2025_D-GEN/slides_zh-TW.pptx) |
 | [LLM/2025_WiCkeD](LLM/2025_WiCkeD/) | WiCkeD: A Simple Method to Make Multiple Choice Benchmarks More Challenging | ACL 2025 · arXiv:2502.18316 | `MCQ-Benchmark` | [zh-TW](LLM/2025_WiCkeD/slides_zh-TW.pptx) |
-| [RAG/2024_GraphRAG](RAG/2024_GraphRAG/) | From Local to Global: A GraphRAG Approach to Query-Focused Summarization | arXiv:2404.16130 | `Retrieval` | [zh-TW](RAG/2024_GraphRAG/slides_zh-TW.pptx) |
+| [RAG/2024_GraphRAG](RAG/2024_GraphRAG/) | From Local to Global: A GraphRAG Approach to Query-Focused Summarization | arXiv:2404.16130 | `Retrieval` | [zh-TW](RAG/2024_GraphRAG/slides_zh-TW.pptx) · [完整版](RAG/2024_GraphRAG/graph-rag-full-slides_zh-TW.pptx) |
 | [RAG/2024_RAGChecker](RAG/2024_RAGChecker/) | RAGChecker: A Fine-grained Framework for Diagnosing Retrieval-Augmented Generation | arXiv:2408.08067 | `Retrieval` `LLM-as-Judge` | [zh-TW](RAG/2024_RAGChecker/slides_zh-TW.pptx) |
 | [RAG/2025_AutoMCQA](RAG/2025_AutoMCQA/) | Automated MCQA Benchmarking at Scale: Evaluating Reasoning Traces as Retrieval Sources for Domain Adaptation of Small Language Models | SC'25 · arXiv:2509.10744 | `MCQ-Benchmark` `QA-Synthesis` `Retrieval` | [zh-TW](RAG/2025_AutoMCQA/slides_zh-TW.pptx) · [精讀](RAG/2025_AutoMCQA/slides_deepread_zh-TW.pptx) · [zh-CN](RAG/2025_AutoMCQA/slides_zh-CN.pptx) |
 | [RAG/2026_HopWeaver](RAG/2026_HopWeaver/) | HopWeaver: Cross-Document Synthesis of High-Quality and Authentic Multi-Hop Questions | ACL 2026 | `QA-Synthesis` `Retrieval` | [zh-TW](RAG/2026_HopWeaver/slides_zh-TW.pptx) · [zh-CN](RAG/2026_HopWeaver/slides_zh-CN.pptx) |

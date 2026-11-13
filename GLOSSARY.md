@@ -33,12 +33,16 @@ _Avoid_: 論文檔、source
 ## 產物
 
 **簡報（Slides）**：
-依論文內容整理、可用於組會報告的投影片檔，檔名帶語言代碼，例如 `slides_zh-TW.pptx`。
+依論文內容整理、可用於組會報告的投影片檔，檔名帶語言代碼，例如 `slides_zh-TW.pptx`。口語上也稱「精簡版」。
 _Avoid_: deck、PPT、final_presentation
 
 **精讀簡報（Deep-read slides）**：
 比一般簡報更逐步拆解方法細節的長版簡報，檔名為 `slides_deepread_<語言>.pptx`。
-_Avoid_: 詳細版、完整版
+_Avoid_: 詳細版
+
+**完整版簡報（Full slides）**：
+簡報精簡為報告版之前保留下來的完整版本，與同資料夾的簡報共存，檔名保留原始命名，例如 `graph-rag-full-slides_zh-TW.pptx`。
+_Avoid_: 備份檔、舊版簡報
 
 **語言代碼（Language code）**：
 產物檔名後綴，目前使用 `zh-TW`（繁體中文，主要版本）與 `zh-CN`（簡體中文）。
