@@ -20,5 +20,5 @@
 
 ## 4. 提交
 
-- [ ] 4.1 顯示 diff 摘要後以英文 conventional commit 提交並推送到 `claude/nice-knuth-5v7f3y`
-- [ ] 4.2 開 PR 以 squash 合併到 main，之後封存本 change
+- [x] 4.1 顯示 diff 摘要後以英文 conventional commit 提交並推送到 `claude/nice-knuth-5v7f3y`
+- [x] 4.2 開 PR 以 squash 合併到 main，之後封存本 change
