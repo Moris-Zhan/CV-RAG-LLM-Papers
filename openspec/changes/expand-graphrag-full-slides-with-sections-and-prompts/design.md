@@ -6,47 +6,35 @@
 
 ## Decisions
 
-### D1：頁面配置（42 頁）
+### D1：頁面配置（36 頁）
 
-| 頁 | 內容 | 頁 | 內容 |
-|---|---|---|---|
-| 1 | 封面 | 22 | 方法細節 11 回答 prompt |
-| 2 | 目錄 | 23 | 方法細節 12 context 視窗 |
-| 3 | 研究背景 | 24 | 論文步驟與 workflow 對照 |
-| 4 | 核心想法 | 25 | 評測設計 1 · 問題生成 |
-| 5 | 方法總覽 · Figure 1 | 26 | 評測設計 · Algorithm 1（新） |
-| 6 | 章節總覽 1／6（新） | 27 | 評測設計 2 · 評分與比較條件 |
-| 7 | 方法細節 1 chunk 切分 | 28 | 實驗 1 勝率 |
-| 8 | 章節總覽 2／6（新） | 29 | 成本 |
-| 9–11 | 方法細節 2 擷取 prompt、3 自我反思、4 claim | 30 | 驗證 · 實驗 2 方法（新） |
-| 12 | 章節總覽 3／6（新） | 31 | 實驗 2 結果 |
-| 13 | 方法細節 5 建構知識圖譜 | 32–33 | 限制、總結 |
-| 14 | 章節總覽 4／6（新） | 34–35 | 備用頁 × 2 |
-| 15 | 方法細節 6 階層式社群 | 36–42 | 附錄 · 實作 prompt 1–7（新） |
-| 16 | 章節總覽 5／6（新） | | |
-| 17–19 | 方法細節 7 degree、8 context 組裝、9 JSON 格式 | | |
-| 20 | 章節總覽 6／6（新） | | |
-| 21 | 方法細節 10 map-reduce | | |
+| 頁 | 內容 |
+|---|---|
+| 1–5 | 封面、目錄、研究背景、核心想法、方法總覽 · Figure 1 |
+| 6 | 方法細節 1.1 chunk 切分 |
+| 7–9 | 方法細節 2.1 元素擷取 prompt、2.2 自我反思、2.3 claim |
+| 10 | 方法細節 3.1 建構知識圖譜 |
+| 11 | 方法細節 4.1 階層式社群 |
+| 12–14 | 方法細節 5.1 節點 degree、5.2 context 組裝、5.3 JSON 格式 |
+| 15–17 | 方法細節 6.1 map-reduce、6.2 回答 prompt、6.3 context 視窗 |
+| 18 | 論文步驟與 workflow 對照 |
+| 19–21 | 評測設計 1 問題生成、Algorithm 1（新）、評測設計 2 評分與比較條件 |
+| 22–25 | 實驗 1 勝率、成本、實驗 2 方法（新）、實驗 2 結果 |
+| 26–29 | 限制、總結、備用頁 × 2 |
+| 30–36 | 附錄 · 實作 prompt 1–7（新） |
 
-### D2：重排與交叉引用
+### D2：重排、x.y 編號與交叉引用
 
 - build script 中「claim」區塊移到「建構知識圖譜」之前，「階層式社群」區塊移到「節點 degree」之前。
-- Fig. 1 標籤對應依 spec 的新表。
-- 交叉引用更新：
-  - claim 頁圖說「實體與關係見方法細節 4」→「方法細節 5」；
-  - chunk 頁「見方法細節 3」不變。
-- workflow 對照頁的頁碼欄：
-  - `create_base_text_units` 7；`extract_graph` 9–10、13；`finalize_graph` 17；`extract_covariates` 11；`create_communities` 15；`create_community_reports` 18–19；
-  - 查詢階段 21／22／23；
-  - 備忘稿中的頁碼一併更新。
+- 內部仍以 1–12 作為識別碼，另以對照表轉成 x.y 顯示；`new_slide` 以「方法細節 x.y」辨識方法細節頁，並畫出「Fig. 1 階段 x · <階段轉換>」標籤。
+- 交叉引用：chunk 頁「見方法細節 2.2」；claim 頁圖說「實體與關係見方法細節 3.1」；附錄 prompt 頁 kicker 的「對應方法細節 x.y」。
+- workflow 對照頁頁碼欄：`create_base_text_units` 6；`extract_graph` 7–8、10；`finalize_graph` 12；`extract_covariates` 9；`create_communities` 11；`create_community_reports` 13–14；查詢階段 15／16／17；備忘稿頁碼一併更新。
 
-### D3：章節總覽頁
+### D3：論文本節重點（備忘稿）
 
-- **版面**：kicker「章節總覽 N／6」，標題為英文階段名稱，不加 Fig. 1 標籤。
-- **左欄**：3–4 條中文要點，依使用者確認的草稿。
-- **右欄**：「延伸頁」面板，列出「方法細節 N · 標題（第 P 頁）」。
-- **備忘稿**：標出該段的論文小節，並加一句「細節見方法細節 N–M」。
-- **畫面用詞**：不寫 §、附錄、章節編號；§3.1.6 的「第 4 章評估」改寫為「由實驗評估」。
+- 不設章節總覽頁。每個階段第一張方法細節頁（1.1、2.1、3.1、4.1、5.1、6.1）的備忘稿開頭加「【論文本節重點】」段，逐條列出使用者確認過的要點草稿，每條結尾標註 § 出處；原有備忘稿接在後面。
+- 方法總覽頁對應表每列為「細節 x.1–x.n（第 P–Q 頁）」，單頁的階段寫「細節 x.1（第 P 頁）」；備忘稿說明 x.y 編號的意義。
+- 目錄方法段的項目前面加上階段序號，例如「2 Text Chunks → Entities & Relationships」。
 
 ### D4：Algorithm 1 頁
 
@@ -69,22 +57,22 @@
 
 | 頁 | 小條內容 |
 |---|---|
-| 9 | 實驗建圖用通用的實體與關係擷取 prompt，實體類型與 few-shot 範例依資料領域調整 |
-| 21 | 對照條件 TS 用同一套方法，但打散、切塊的是原文 chunk，不是 community summary |
-| 23 | community summary、community answer、全域答案都用 8k context；建圖環境為 16GB RAM 虛擬機（Xeon Platinum 8171M） |
-| 27 | Podcast：Behind the Tech with Kevin Scott 訪談逐字稿；News：2013/9–2023/12 新聞，涵蓋娛樂、商業、運動、科技、健康、科學 |
+| 7 | 實驗建圖用通用的實體與關係擷取 prompt，實體類型與 few-shot 範例依資料領域調整 |
+| 15 | 對照條件 TS 用同一套方法，但打散、切塊的是原文 chunk，不是 community summary |
+| 17 | community summary、community answer、全域答案都用 8k context；建圖環境為 16GB RAM 虛擬機（Xeon Platinum 8171M） |
+| 21 | Podcast：Behind the Tech with Kevin Scott 訪談逐字稿；News：2013/9–2023/12 新聞，涵蓋娛樂、商業、運動、科技、健康、科學 |
 
 ### D7：附錄實作 prompt
 
 | 頁 | 常數 | 對應方法細節 | 畫面節錄 |
 |---|---|---|---|
-| 36 | `GRAPH_EXTRACTION_PROMPT` | 2 | `-Steps-` 段 1–4 |
-| 37 | extract_graph 與 extract_claims 的 `CONTINUE_PROMPT`／`LOOP_PROMPT` | 3、4 | 四個常數全文 |
-| 38 | `EXTRACT_CLAIMS_PROMPT` | 4 | `-Steps-` 段的欄位清單與格式 |
-| 39 | `SUMMARIZE_PROMPT` | 5 | 指示段全文 |
-| 40 | `COMMUNITY_REPORT_PROMPT` | 9 | `# Report Structure` 段 |
-| 41 | `MAP_SYSTEM_PROMPT` | 10、11 | key point 的元素與 0–100 評分段 |
-| 42 | `REDUCE_SYSTEM_PROMPT`、`GENERAL_KNOWLEDGE_INSTRUCTION`、`NO_DATA_ANSWER` | 10、11 | 排序與合併段、一般知識標註、無資料回覆 |
+| 30 | `GRAPH_EXTRACTION_PROMPT` | 2.1 | `-Steps-` 段 1–4 |
+| 31 | extract_graph 與 extract_claims 的 `CONTINUE_PROMPT`／`LOOP_PROMPT` | 2.2、2.3 | 四個常數全文 |
+| 32 | `EXTRACT_CLAIMS_PROMPT` | 2.3 | `-Steps-` 段的欄位清單與格式 |
+| 33 | `SUMMARIZE_PROMPT` | 3.1 | 指示段全文 |
+| 34 | `COMMUNITY_REPORT_PROMPT` | 5.3 | `# Report Structure` 段 |
+| 35 | `MAP_SYSTEM_PROMPT` | 6.1、6.2 | key point 的元素與 0–100 評分段 |
+| 36 | `REDUCE_SYSTEM_PROMPT`、`GENERAL_KNOWLEDGE_INSTRUCTION`、`NO_DATA_ANSWER` | 6.1、6.2 | 排序與合併段、一般知識標註、無資料回覆 |
 
 - **左欄**：中文結構整理，包括目標、步驟或輸出、引用規則與佔位符。佔位符依原始碼列出，例如 `{entity_types}`、`{input_text}`、`{max_length}`。
 - **右欄**：等寬字體的英文節錄。
@@ -101,9 +89,9 @@
 
 ### D9：驗證
 
-- **`verify_full_v2.py`**：42 頁的頁序、Fig. 1 標籤、總覽頁對應表、章節總覽頁延伸清單、目錄範圍涵蓋 3–42、workflow 頁碼欄、備忘稿中的頁碼引用。
-- **`verify_coverage_v2.py`**：
-  - 論文各段關鍵詞出現在指定頁的**畫面**上；
+- **`verify_full_v3.py`**：36 頁的頁序、x.y 編號與 Fig. 1 階段標籤、總覽頁對應表、目錄範圍涵蓋 3–36、workflow 頁碼欄、備忘稿中的頁碼與 x.y 引用。
+- **`verify_coverage_v3.py`**：
+  - §3.1 各段要點出現在 x.1 頁備忘稿的「【論文本節重點】」段；§3.2、§4.1、§4.2 的關鍵詞出現在指定頁的**畫面**上；
   - 畫面上沒有 §、附錄、第 N 章；
   - claim 頁沒有 Claimify、ROUGE-L、factual claim；
   - Algorithm 1 每行英文都在論文原文中；
@@ -113,5 +101,4 @@
 
 ## Risks
 
-- **英文標題過長**：「Community Summaries → Community Answers → Global Answer」在 27 pt 標題可能換行；渲染確認，必要時只對總覽頁縮小標題字級。
-- **目錄排不下**：42 頁的目錄若仍超出，就縮小行距與字級，不拆頁、不刪項目。
+- **目錄排不下**：36 頁的目錄若仍超出，就縮小行距與字級，不拆頁、不刪項目。
